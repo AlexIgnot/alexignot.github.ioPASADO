@@ -12,20 +12,28 @@ export class HeaderComponent implements OnInit {
 
 	}
 
-	nombre: string = "fake name";
-	titulo: string = "fake PhD";
-	objetivo: string = "fake goal";
-	foto: string = "fake photo";
-	email: string = "fake email";
-	celular: string = "fake phone";
-	ubicacion: string = "fake location";
-	redsocial: string = "fake social";
+	nombre:String = "fake name";
+	titulo:String = "fake PhD";
+	objetivo:String = "fake goal";
+	foto:String = "fake photo url";
+	email:String = "fake email";
+	celular:String = "fake phone";
+	ubicacion:String = "fake location";
+	redsocial:String = "fake social";
 
 	ngOnInit() : void {
 		this.headerService.getHeader()
-		.subscribe( (data : any) => {
-			console.log(data);
-			alert(data);
-		}
+		.subscribe((data : any) => {
+
+			this.nombre = data.nombre;
+			this.titulo = data.titulo;
+			this.objetivo = data.objetivo;
+			this.foto = data.foto;
+			this.email = data.email;
+			this.celular = data.celular;
+			this.ubicacion = data.ubicacion;
+			this.redsocial = data.redsocial;
+
+		})
 	}
 }
